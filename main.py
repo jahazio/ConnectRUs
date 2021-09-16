@@ -12,4 +12,13 @@ app = Flask(
 def hello():
   return "Hello World!"
 
+#Amanda's HTTP Request
+@app.route("/number/<input>")
+def number(input):
+  input = int(input)
+  if (input%2==0):
+    return "even!"
+  else:
+    return "odd!"
+
 app.run(host = "0.0.0.0")
