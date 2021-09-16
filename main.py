@@ -21,4 +21,18 @@ def number(input):
   else:
     return "odd!"
 
+#Sandra's HTTP Request
+def ftoc(ftemp):
+   return (ftemp-32.0)*(5.0/9.0)
+
+@app.route('/ftoc/<ftempString>')
+def convertFtoC(ftempString):
+    ftemp = 0.0
+    try:
+        ftemp = float(ftempString)
+        ctemp = ftoc(ftemp)
+        return ftempString + "° degree Farenheit is " + str(ctemp) +" in Celsius "  
+    except ValueError:
+        return "Sorry.  Could not convert " + ftempString + " to a number"
+
 app.run(host = "0.0.0.0")
