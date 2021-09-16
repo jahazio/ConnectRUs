@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 
 # Create a flask app
 app = Flask(
@@ -12,10 +12,4 @@ app = Flask(
 def hello():
   return "Hello World!"
 
-if __name__ == '__main__':
-  # Run the Flask app
-  app.run(
-	host='0.0.0.0',
-	debug=True,
-	port=8080
-  )
+app.run(host = "0.0.0.0")
