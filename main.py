@@ -48,6 +48,15 @@ def randomno(x,y,z):
     s = int(input("Enter Starting number :"))
     e = int(input("Enter Ending number :"))
     print(randomno(x, y, z))
-
+   
+#Julia's HTTP Request
+@app.route("/factorial/<n>")
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+    n = int(input("Input a number to compute the factiorial : "))
+    print(factorial(n))
 
 app.run(host = "0.0.0.0")
