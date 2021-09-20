@@ -31,8 +31,23 @@ def convertFtoC(ftempString):
     try:
         ftemp = float(ftempString)
         ctemp = ftoc(ftemp)
-        return ftempString + "° degree Farenheit is " + str(ctemp) +" in Celsius "  
+        return ftempString + "° degree Farenheit is " + str(ctemp) +" in Celsius "
     except ValueError:
         return "Sorry.  Could not convert " + ftempString + " to a number"
+
+#Jonathan's HTTP Request
+@app.route("randomno/<input>")
+import random
+def randomno(x,y,z):
+   ran = []
+   for i in range(z):
+      ran.append(random.randint(x, y))
+   return ran
+   # Driver Code
+    n = int(input("How many Random Numbers displayed? :"))
+    s = int(input("Enter Starting number :"))
+    e = int(input("Enter Ending number :"))
+    print(randomno(x, y, z))
+
 
 app.run(host = "0.0.0.0")
