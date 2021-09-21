@@ -59,4 +59,11 @@ def factorial(n):
     n = int(input("Input a number to compute the factiorial : "))
     print(factorial(n))
 
+#Chelsea's HTTP Request
+@app.route("/squareroot/<n>")
+def squareroot(n):
+    n = float(input('Enter a number: '))
+    n_sqrt = n ** 0.5
+    print('The square root of %0.3f is %0.3f'%(n ,n_sqrt))
+
 app.run(host = "0.0.0.0")
