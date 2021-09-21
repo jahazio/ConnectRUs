@@ -36,19 +36,18 @@ def convertFtoC(ftempString):
         return "Sorry.  Could not convert " + ftempString + " to a number"
 
 #Jonathan's HTTP Request
-@app.route("randomno/<input>")
-import random
-def randomno(x,y,z):
-   ran = []
-   for i in range(z):
-      ran.append(random.randint(x, y))
-   return ran
-   # Driver Code
-    n = int(input("How many Random Numbers displayed? :"))
-    s = int(input("Enter Starting number :"))
-    e = int(input("Enter Ending number :"))
-    print(randomno(x, y, z))
-   
+def ktomi(kilo):
+  return (kilo*.621371)
+
+@app.route('/ktomi/<kilometers>')
+def convertKtoMi(kilometers):
+  try:
+    kilo=float(kilometers)
+    mi=ktomi(kilo)
+    return kilometers + " kilometers is " + str(mi) + " miles."
+  except ValueError:
+      return "Sorry. Could not convert " + kilometers + " to miles."
+
 #Julia's HTTP Request
 @app.route("/factorial/<n>")
 def factorial(n):
