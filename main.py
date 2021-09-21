@@ -1,4 +1,5 @@
 from flask import Flask
+import random
 
 # Create a flask app
 app = Flask(
@@ -36,14 +37,13 @@ def convertFtoC(ftempString):
         return "Sorry.  Could not convert " + ftempString + " to a number"
 
 #Jonathan's HTTP Request
-@app.route("randomno/<input>")
-import random
+@app.route("/randomno/<input>")
 def randomno(x,y,z):
-   ran = []
-   for i in range(z):
+    ran = []
+    for i in range(z):
       ran.append(random.randint(x, y))
-   return ran
-   # Driver Code
+    return ran
+    # Driver Code
     n = int(input("How many Random Numbers displayed? :"))
     s = int(input("Enter Starting number :"))
     e = int(input("Enter Ending number :"))
@@ -60,10 +60,10 @@ def factorial(n):
     print(factorial(n))
 
 #Chelsea's HTTP Request
-@app.route("/squareroot/<n>")
-def squareroot(n):
-    n = float(input('Enter a number: '))
-    n_sqrt = n ** 0.5
-    print('The square root of %0.3f is %0.3f'%(n ,n_sqrt))
+@app.route("/square/<n>")
+def square(n):
+    n = int(n)
+    n_sq = n ** 2
+    return "The square of " + str(n) + " is " + str(n_sq)
 
 app.run(host = "0.0.0.0")
