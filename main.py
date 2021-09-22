@@ -1,5 +1,5 @@
 from flask import Flask
-import random
+import pendulum
 
 # Create a flask app
 app = Flask(
@@ -65,5 +65,15 @@ def square(n):
     n = int(n)
     n_sq = n ** 2
     return "The square of " + str(n) + " is " + str(n_sq)
+
+# Amanda's A4 code
+@app.route("/timezone")
+def timezone():
+    local = pendulum.now()
+    paris_time = pendulum.timezone('Europe/Paris').convert(pendulum.now('UTC'))
+    start = pendulum.today()
+    end = pendulum.datetime(2021, 12, 18)
+    period = pendulum.period(start, end)
+    return "Your time is " + local.to_day_datetime_string() + "</br> In Paris it is " + paris_time.to_day_datetime_string() + "</br>" + str(period.days) + " day until end of semester"
 
 app.run(host = "0.0.0.0")
