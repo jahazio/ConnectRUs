@@ -86,7 +86,7 @@ def arrays(row, col):
     c = int(col)
     z = np.zeros((r, c))
     return "An array initialized with all zeros:</br>" + str(z)
-  
+
 #Julia's A4 code
 @app.route("/table")
 def table():
@@ -99,7 +99,7 @@ def table():
                        columns=data[0, 1:]))
 
     return str(df)
-  
+
 # Chelsea's A4 code
 @app.route("/plot")
 def plot():
@@ -111,5 +111,14 @@ def plot():
     plt.xlabel("x values")
     plt.ylabel("y values")
     return str(plt.show())
+
+#Jonathan's A4 code
+@app.route('/parse')
+def parse():
+    url = "https://www.tutorialspoint.com/index.htm"
+    req = requests.get(url)
+    soup = BeautifulSoup(req.text, "html.parser")
+    return "Website titles is " + str(soup.title.text)
+
 
 app.run(host = "0.0.0.0")
