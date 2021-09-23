@@ -1,4 +1,5 @@
 from flask import Flask
+from matplotlib import pyplot as plt
 import pendulum
 import numpy as np
 import pandas as pd
@@ -98,5 +99,17 @@ def table():
                        columns=data[0, 1:]))
 
     return str(df)
+  
+# Chelsea's A4 code
+@app.route("/plot")
+def plot():
+    x_values = [1, 2, 3, 4]
+    y_values = [4, 3, 2, 1]
+
+    plt.plot(x_values, y_values, color="navy")
+    plt.title("Chelsea's energy level of the day")
+    plt.xlabel("x values")
+    plt.ylabel("y values")
+    return str(plt.show())
 
 app.run(host = "0.0.0.0")
