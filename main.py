@@ -108,8 +108,8 @@ def plot():
 
     plt.plot(x_values, y_values, color="navy")
     plt.title("Chelsea's energy level of the day")
-    plt.xlabel("x values")
-    plt.ylabel("y values")
+    plt.xlabel("time")
+    plt.ylabel("energy level")
     return str(plt.show())
 
 #Jonathan's A4 code
