@@ -1,6 +1,7 @@
 from flask import Flask
 import pendulum
 import numpy as np
+import pandas as pd
 
 # Create a flask app
 app = Flask(
@@ -84,5 +85,18 @@ def arrays(row, col):
     c = int(col)
     z = np.zeros((r, c))
     return "An array initialized with all zeros:</br>" + str(z)
+  
+#Julia's A4 code
+@app.route("/table")
+def table():
+    data = np.array([['', 'Col1', 'Col2'],
+                     ['Row1', 1, 2],
+                     ['Row2', 3, 4]])
+
+    df = (pd.DataFrame(data=data[1:, 1:],
+                       index=data[1:, 0],
+                       columns=data[0, 1:]))
+
+    return str(df)
 
 app.run(host = "0.0.0.0")
